@@ -1,0 +1,9 @@
+Package: com.walen.configwifitool
+Name: ConfigWifiTool
+Depends: mobilesubstrate
+Version: 0.0.1
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: walen
+Author: walen
+Section: Tweaks
