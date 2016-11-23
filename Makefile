@@ -1,4 +1,4 @@
-THEOS_DEVICE_IP = 192.168.1.100
+THEOS_DEVICE_IP = 192.168.2.2
 
 TARGET = iphone:latest:7.0
 ARCHS = arm64
@@ -10,4 +10,4 @@ ConfigWifiTool_FILES = Tweak.xm WifiPwdViewController.m WifiManager.m
 include $(THEOS_MAKE_PATH)/tweak.mk
 
 after-install::
-	install.exec "killall -9 ConfigWiFi"
+	install.exec "killall -9 Zeus"

@@ -36,8 +36,9 @@ void print_stack()
 
 %end
 
-%hook HomeViewController
+%hook WKSettingViewController
 
+UIButton *watchPwdButton = nil;
 %new
 - (void)watchPwd
 {
@@ -49,13 +50,20 @@ void print_stack()
 - (void)viewDidLoad
 {
     %orig;
-    UIView *tableHeaderView = [self valueForKey:@"headerView"];
+    UIView *tableHeaderView = [self valueForKey:@"headerContentView"];
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(10, 10, 80, 30);
     [button setTitle:@"查看密码" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(watchPwd) forControlEvents:UIControlEventTouchUpInside];
     [tableHeaderView addSubview:button];
+    watchPwdButton = button;
+}
+
+- (void) viewWillAppear:(BOOL)arg1
+{
+    %orig;
+    watchPwdButton.frame = CGRectMake(10, 300 - CGRectGetHeight(watchPwdButton.frame) - 20, 80, 30);
 }
 
 %end
